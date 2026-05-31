@@ -24,7 +24,7 @@ const faqs = [
 ];
 ---
 
-<section class="px-margin-mobile md:px-margin-desktop py-[60px] md:py-section-gap max-w-screen-2xl mx-auto" id="faq">
+<section class="px-margin-mobile md:px-margin-desktop py-15 md:py-section-gap max-w-screen-2xl mx-auto" id="faq">
   <div class="mb-16 text-center max-w-3xl mx-auto">
     <h2 class="text-headline-xl font-semibold text-on-background mb-4">Pertanyaan <span class="marker-highlight">Umum</span></h2>
     <p class="text-body-lg text-on-surface-variant">Masih ragu? Mungkin jawabannya sudah ada di sini.</p>
@@ -34,7 +34,7 @@ const faqs = [
       <details class="group bg-white border-2 border-surface-dim rounded-2xl overflow-hidden transition-all duration-300 open:border-tomato/30 open:shadow-md">
         <summary class="flex items-center justify-between p-6 cursor-pointer list-none">
           <span class="text-body-md font-bold text-on-surface pr-4">{faq.q}</span>
-          <span class="material-symbols-outlined text-tomato transition-transform duration-300 group-open:rotate-180 flex-shrink-0">expand_more</span>
+          <span class="material-symbols-outlined text-tomato transition-transform duration-300 group-open:rotate-180 shrink-0">expand_more</span>
         </summary>
         <div class="px-6 pb-6">
           <p class="text-body-md text-on-surface-variant">{faq.a}</p>

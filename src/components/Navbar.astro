@@ -2,7 +2,7 @@
 import LogoFull from "./LogoFull.astro";
 ---
 
-<nav class="bg-surface-bright/90 backdrop-blur-md fixed top-0 left-0 right-0 z-50 border-b border-border-base/50">
+<nav class="bg-white fixed top-0 left-0 right-0 z-50 border-b border-border-base">
   <div class="flex justify-between items-center w-full px-margin-mobile md:px-margin-desktop py-3 max-w-screen-2xl mx-auto">
     <a href="/" class="flex items-center">
       <LogoFull class="h-8 w-auto" />
@@ -24,7 +24,7 @@ import LogoFull from "./LogoFull.astro";
   </div>
 
   <div id="mobile-menu" class="fixed inset-0 z-50 hidden">
-    <div class="absolute inset-0 bg-black/40 backdrop-blur-sm" id="mobile-menu-overlay"></div>
+    <div class="absolute inset-0 bg-black/50" id="mobile-menu-overlay"></div>
     <div class="absolute top-0 right-0 w-72 h-full bg-white shadow-2xl p-6 flex flex-col">
       <div class="flex justify-end mb-10">
         <button id="mobile-menu-close" class="text-on-surface-variant hover:text-on-surface" aria-label="Close menu">
@@ -53,11 +53,13 @@ import LogoFull from "./LogoFull.astro";
   const menuOverlay = document.getElementById("mobile-menu-overlay");
 
   function openMenu() {
+    if (!menu) return;
     menu.classList.remove("hidden");
     document.body.style.overflow = "hidden";
   }
 
   function closeMenu() {
+    if (!menu) return;
     menu.classList.add("hidden");
     document.body.style.overflow = "";
   }

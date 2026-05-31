@@ -1,43 +1,165 @@
 ---
 
-const industries = [
-  {
-    icon: "store",
-    title: "UMKM & Retail",
-    desc: "Toko offline dan online yang kewalahan dengan ribuan pertanyaan stok, harga, dan resi setiap harinya.",
-  },
-  {
-    icon: "business_center",
-    title: "Service Business",
-    desc: "Jasa salon, bengkel, wedding organizer - bisnis yang sangat bergantung pada booking dan follow-up klien.",
-  },
-  {
-    icon: "local_shipping",
-    title: "Distribusi",
-    desc: "Perusahaan distribusi yang butuh tracking order dan komunikasi cepat dengan reseller di seluruh Indonesia.",
-  },
-  {
-    icon: "real_estate_agent",
-    title: "Properti",
-    desc: "Agen properti yang kehilangan leads karena respon lambat ke calon pembeli atau penyewa.",
-  },
-];
 ---
 
-<section class="px-margin-mobile md:px-margin-desktop py-[60px] md:py-section-gap bg-surface-bright max-w-screen-2xl mx-auto">
-  <div class="mb-16 md:w-1/2">
-    <h2 class="text-headline-xl font-semibold text-on-background mb-4">Kami Membantu <span class="text-tomato marker-highlight">Berbagai Industri</span></h2>
-    <p class="text-body-lg text-on-surface-variant">Setiap bisnis punya tantangan operasional unik. Solusi kami fleksibel untuk berbagai sektor.</p>
-  </div>
-  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-    {industries.map((ind) => (
-      <div class="bg-white rounded-3xl p-8 border-2 border-surface-dim hover:border-tomato/30 transition-colors duration-300 group">
-        <div class="w-14 h-14 rounded-2xl bg-pastel-peach flex items-center justify-center mb-6 group-hover:bg-tomato group-hover:text-white transition-all duration-300">
-          <span class="material-symbols-outlined text-2xl text-tomato group-hover:text-white transition-colors duration-300">{ind.icon}</span>
+<section
+    class="px-margin-mobile md:px-margin-desktop py-15 md:py-section-gap bg-surface-bright max-w-screen-2xl mx-auto relative overflow-hidden"
+>
+    <div
+        class="absolute bottom-10 left-10 w-48 h-48 opacity-[0.07] pattern-dots pointer-events-none"
+    >
+    </div>
+
+    <div class="relative z-10">
+        <div class="mb-12 md:mb-16 md:w-2/3">
+            <h2 class="text-headline-xl font-semibold text-on-background mb-4">
+                Kami Membantu <span class="text-tomato marker-highlight"
+                    >Berbagai Industri</span>
+            </h2>
+            <p class="text-body-lg text-on-surface-variant">
+                Setiap bisnis punya tantangan operasional unik. Solusi kami
+                fleksibel untuk berbagai sektor.
+            </p>
         </div>
-        <h3 class="text-headline-md font-semibold mb-3">{ind.title}</h3>
-        <p class="text-body-sm text-on-surface-variant">{ind.desc}</p>
-      </div>
-    ))}
-  </div>
+
+        <div class="space-y-6">
+            <!-- Featured: UMKM & Retail -->
+            <div
+                class="bg-white rounded-3xl p-8 md:p-10 border-2 border-tomato/25 relative shadow-md md:flex items-start gap-10"
+            >
+                <div
+                    class="absolute -top-3 -right-3 w-8 h-8 bg-tomato rounded-full flex items-center justify-center text-white text-[11px] font-bold shadow-md"
+                >
+                    #1
+                </div>
+                <div
+                    class="w-16 h-16 rounded-2xl bg-pastel-peach flex items-center justify-center mb-5 md:mb-0 md:shrink-0"
+                >
+                    <span class="material-symbols-outlined text-3xl text-tomato"
+                        >store</span
+                    >
+                </div>
+                <div>
+                    <h3 class="text-headline-lg font-semibold mb-2">
+                        <span class="marker-highlight">UMKM & Retail</span>
+                    </h3>
+                    <p class="text-body-md text-on-surface-variant max-w-xl">
+                        Toko offline dan online yang kewalahan dengan ribuan
+                        pertanyaan stok, harga, dan resi setiap harinya.
+                        Otomatisasi kami menangani percakapan rutin, tim Anda
+                        fokus pada layanan pelanggan dan strategi bisnis.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Middle row: two different visual styles -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div
+                    class="bg-pastel-peach rounded-3xl p-8 relative overflow-hidden"
+                >
+                    <div
+                        class="absolute -top-8 -right-8 w-32 h-32 bg-white/30 rounded-full"
+                    >
+                    </div>
+                    <div class="relative z-10">
+                        <div
+                            class="w-12 h-12 rounded-xl bg-white flex items-center justify-center mb-5 shadow-sm"
+                        >
+                            <span
+                                class="material-symbols-outlined text-2xl text-secondary"
+                                >business_center</span
+                            >
+                        </div>
+                        <h3 class="text-headline-md font-semibold mb-2">
+                            Service Business
+                        </h3>
+                        <p
+                            class="text-body-sm text-on-surface-variant leading-relaxed"
+                        >
+                            Jasa salon, bengkel, wedding organizer - bisnis yang
+                            sangat bergantung pada booking dan follow-up klien.
+                            Kami otomatiskan jadwal dan pengingat, tidak ada
+                            pelanggan yang terlewat.
+                        </p>
+                    </div>
+                </div>
+
+                <div
+                    class="bg-white rounded-3xl p-8 border-l-[6px] border-secondary relative shadow-sm"
+                >
+                    <div class="flex items-center gap-4 mb-5">
+                        <div
+                            class="w-12 h-12 rounded-xl bg-surface-bright flex items-center justify-center"
+                        >
+                            <span
+                                class="material-symbols-outlined text-2xl text-tomato"
+                                >local_shipping</span
+                            >
+                        </div>
+                        <h3 class="text-headline-md font-semibold">
+                            Distribusi
+                        </h3>
+                    </div>
+                    <p
+                        class="text-body-sm text-on-surface-variant leading-relaxed"
+                    >
+                        Tracking order dan komunikasi cepat dengan reseller di
+                        seluruh Indonesia. Semua notifikasi dan follow-up
+                        berjalan otomatis, tim Anda tidak kewalahan.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Properti callout -->
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-6 items-center">
+                <div class="hidden md:flex md:col-span-1 justify-center">
+                    <svg
+                        class="w-8 h-16 text-tomato/30"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 30 60"
+                    >
+                        <path
+                            d="M15,5 C15,5 5,20 15,30 C25,40 10,55 10,55"
+                            stroke-linecap="round"
+                            stroke-width="2"></path>
+                        <path
+                            d="M10,48 L18,55 L12,60"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="2"></path>
+                    </svg>
+                </div>
+                <div
+                    class="md:col-span-11 bg-white border border-border-base rounded-2xl p-6 md:flex items-center gap-6 hover:border-tomato/20 transition-colors"
+                >
+                    <div class="flex items-center gap-4 mb-4 md:mb-0">
+                        <div
+                            class="w-12 h-12 rounded-full bg-pastel-peach flex items-center justify-center shrink-0"
+                        >
+                            <span
+                                class="material-symbols-outlined text-2xl text-tomato"
+                                >real_estate_agent</span
+                            >
+                        </div>
+                        <h3 class="text-headline-md font-semibold md:hidden">
+                            Properti
+                        </h3>
+                    </div>
+                    <div>
+                        <h3
+                            class="text-headline-md font-semibold mb-1 hidden md:block"
+                        >
+                            Properti
+                        </h3>
+                        <p class="text-body-sm text-on-surface-variant">
+                            Agen properti yang kehilangan leads karena respon
+                            lambat ke calon pembeli atau penyewa. Dengan respon
+                            instan 24/7, tidak ada calon pembeli yang menguap.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </section>
