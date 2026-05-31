@@ -1,5 +1,6 @@
 ---
 import LogoFull from "./LogoFull.astro";
+const pathname = Astro.url.pathname;
 ---
 
 <nav class="bg-white fixed top-0 left-0 right-0 z-50 border-b border-border-base">
@@ -8,17 +9,17 @@ import LogoFull from "./LogoFull.astro";
       <LogoFull class="h-8 w-auto" />
     </a>
     <div class="hidden md:flex items-center gap-8 text-label-caps font-semibold tracking-wider uppercase">
-      <a href="/" class="text-on-surface-variant hover:text-tomato transition-colors duration-300">Beranda</a>
-      <a href="/tentang" class="text-on-surface-variant hover:text-tomato transition-colors duration-300">Tentang</a>
+      <a href="/" class="text-on-surface-variant hover:text-tomato transition-colors duration-300" aria-current={pathname === '/' ? 'page' : undefined}>Beranda</a>
+      <a href="/tentang" class="text-on-surface-variant hover:text-tomato transition-colors duration-300" aria-current={pathname === '/tentang' ? 'page' : undefined}>Tentang</a>
       <a href="/#solusi" class="text-on-surface-variant hover:text-tomato transition-colors duration-300">Solusi</a>
-      <a href="/industri" class="text-on-surface-variant hover:text-tomato transition-colors duration-300">Industri</a>
-      <a href="/faq" class="text-on-surface-variant hover:text-tomato transition-colors duration-300">FAQ</a>
+      <a href="/industri" class="text-on-surface-variant hover:text-tomato transition-colors duration-300" aria-current={pathname === '/industri' ? 'page' : undefined}>Industri</a>
+      <a href="/faq" class="text-on-surface-variant hover:text-tomato transition-colors duration-300" aria-current={pathname === '/faq' ? 'page' : undefined}>FAQ</a>
     </div>
     <a href="/hubungi-kami" class="hidden md:inline-flex bg-tomato text-white px-6 py-2.5 rounded-full text-body-sm font-bold hover:bg-tomato-hover transition-colors shadow-md hover:shadow-lg items-center gap-2">
       <span class="material-symbols-outlined text-[18px]">chat_bubble</span>
       Hubungi Kami
     </a>
-    <button class="md:hidden text-tomato" id="mobile-menu-btn" aria-label="Menu">
+    <button class="md:hidden text-tomato" id="mobile-menu-btn" aria-label="Menu" aria-expanded="false">
       <span class="material-symbols-outlined text-2xl">menu</span>
     </button>
   </div>
@@ -32,11 +33,11 @@ import LogoFull from "./LogoFull.astro";
         </button>
       </div>
       <div class="flex flex-col gap-6">
-        <a href="/" class="text-body-lg font-semibold text-on-surface-variant hover:text-tomato transition-colors" data-nav-link>Beranda</a>
-        <a href="/tentang" class="text-body-lg font-semibold text-on-surface-variant hover:text-tomato transition-colors" data-nav-link>Tentang</a>
+        <a href="/" class="text-body-lg font-semibold text-on-surface-variant hover:text-tomato transition-colors" data-nav-link aria-current={pathname === '/' ? 'page' : undefined}>Beranda</a>
+        <a href="/tentang" class="text-body-lg font-semibold text-on-surface-variant hover:text-tomato transition-colors" data-nav-link aria-current={pathname === '/tentang' ? 'page' : undefined}>Tentang</a>
         <a href="/#solusi" class="text-body-lg font-semibold text-on-surface-variant hover:text-tomato transition-colors" data-nav-link>Solusi</a>
-        <a href="/industri" class="text-body-lg font-semibold text-on-surface-variant hover:text-tomato transition-colors" data-nav-link>Industri</a>
-        <a href="/faq" class="text-body-lg font-semibold text-on-surface-variant hover:text-tomato transition-colors" data-nav-link>FAQ</a>
+        <a href="/industri" class="text-body-lg font-semibold text-on-surface-variant hover:text-tomato transition-colors" data-nav-link aria-current={pathname === '/industri' ? 'page' : undefined}>Industri</a>
+        <a href="/faq" class="text-body-lg font-semibold text-on-surface-variant hover:text-tomato transition-colors" data-nav-link aria-current={pathname === '/faq' ? 'page' : undefined}>FAQ</a>
         <a href="/hubungi-kami" class="mt-4 bg-tomato text-white px-6 py-3 rounded-full text-body-md font-bold text-center flex items-center justify-center gap-2" data-nav-link>
           <span class="material-symbols-outlined text-[18px]">chat_bubble</span>
           Hubungi Kami
@@ -53,21 +54,48 @@ import LogoFull from "./LogoFull.astro";
   const menuOverlay = document.getElementById("mobile-menu-overlay");
 
   function openMenu() {
-    if (!menu) return;
+    if (!menu || !menuBtn) return;
     menu.classList.remove("hidden");
+    menuBtn.setAttribute("aria-expanded", "true");
     document.body.style.overflow = "hidden";
+    menuClose?.focus();
   }
 
   function closeMenu() {
-    if (!menu) return;
+    if (!menu || !menuBtn) return;
     menu.classList.add("hidden");
+    menuBtn.setAttribute("aria-expanded", "false");
     document.body.style.overflow = "";
+    menuBtn.focus();
+  }
+
+  function trapFocus(e) {
+    if (!menu) return;
+    const focusable = menu.querySelectorAll(
+      'a[href], button, [tabindex]:not([tabindex="-1"])'
+    );
+    if (focusable.length === 0) return;
+    const first = focusable[0];
+    const last = focusable[focusable.length - 1];
+    if (e.key === "Tab") {
+      if (e.shiftKey && document.activeElement === first) {
+        e.preventDefault();
+        last.focus();
+      } else if (!e.shiftKey && document.activeElement === last) {
+        e.preventDefault();
+        first.focus();
+      }
+    }
+    if (e.key === "Escape") {
+      closeMenu();
+    }
   }
 
   if (menuBtn && menu) {
     menuBtn.addEventListener("click", openMenu);
     menuClose?.addEventListener("click", closeMenu);
     menuOverlay?.addEventListener("click", closeMenu);
+    menu.addEventListener("keydown", trapFocus);
     menu.querySelectorAll("[data-nav-link]").forEach((link) => {
       link.addEventListener("click", closeMenu);
     });
