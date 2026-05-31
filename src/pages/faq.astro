@@ -1,0 +1,22 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Navbar from "../components/Navbar.astro";
+import FAQSection from "../components/FAQSection.astro";
+import CTASection from "../components/CTASection.astro";
+import Footer from "../components/Footer.astro";
+---
+
+<BaseLayout title="FAQ - AttoMate | Pertanyaan Umum">
+  <Navbar />
+  <main>
+    <section class="px-margin-mobile md:px-margin-desktop pt-28 pb-8 max-w-screen-2xl mx-auto">
+      <div class="max-w-3xl mx-auto text-center">
+        <h1 class="text-display-lg-mobile md:text-headline-xl font-semibold mb-6">Ada <span class="text-tomato marker-highlight">Pertanyaan</span>?</h1>
+        <p class="text-body-lg text-on-surface-variant">Temukan jawaban cepat seputar AttoMate.</p>
+      </div>
+    </section>
+    <FAQSection />
+    <CTASection />
+  </main>
+  <Footer />
+</BaseLayout>

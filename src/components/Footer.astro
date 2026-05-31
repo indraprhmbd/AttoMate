@@ -1,0 +1,48 @@
+---
+import LogoFull from "./LogoFull.astro";
+---
+
+<footer class="bg-white w-full px-margin-mobile md:px-margin-desktop py-10 border-t border-border-base">
+  <div class="max-w-screen-2xl mx-auto">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+      <div>
+        <a href="/" class="inline-block">
+          <LogoFull class="h-7 w-auto" />
+        </a>
+        <p class="text-body-sm text-on-surface-variant mt-3 max-w-xs">
+          Membebaskan tim Anda untuk hal yang lebih penting.
+        </p>
+      </div>
+      <div>
+        <p class="text-label-caps font-semibold uppercase tracking-wider text-on-surface mb-4">Kontak</p>
+        <div class="space-y-3">
+          <a href="https://wa.me/6281234567890" class="flex items-center gap-3 text-body-sm text-on-surface-variant hover:text-tomato transition-colors">
+            <span class="material-symbols-outlined text-[18px]">chat</span>
+            +62 812-3456-7890
+          </a>
+          <a href="mailto:hello@attomate.ai" class="flex items-center gap-3 text-body-sm text-on-surface-variant hover:text-tomato transition-colors">
+            <span class="material-symbols-outlined text-[18px]">mail</span>
+            hello@attomate.ai
+          </a>
+        </div>
+      </div>
+      <div>
+        <p class="text-label-caps font-semibold uppercase tracking-wider text-on-surface mb-4">Ikuti Kami</p>
+        <div class="flex gap-3">
+          <a href="https://wa.me/6281234567890" class="w-10 h-10 rounded-full bg-pastel-peach flex items-center justify-center text-tomato hover:bg-tomato hover:text-white transition-all duration-300" aria-label="WhatsApp">
+            <span class="material-symbols-outlined text-[20px]">chat</span>
+          </a>
+          <a href="mailto:hello@attomate.ai" class="w-10 h-10 rounded-full bg-pastel-peach flex items-center justify-center text-tomato hover:bg-tomato hover:text-white transition-all duration-300" aria-label="Email">
+            <span class="material-symbols-outlined text-[20px]">mail</span>
+          </a>
+          <a href="https://instagram.com/attomate" class="w-10 h-10 rounded-full bg-pastel-peach flex items-center justify-center text-tomato hover:bg-tomato hover:text-white transition-all duration-300" aria-label="Instagram">
+            <span class="material-symbols-outlined text-[20px]">photo_camera</span>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="border-t border-border-base pt-6 text-center">
+      <p class="text-body-sm text-on-surface-variant">© 2026 AttoMate.</p>
+    </div>
+  </div>
+</footer>

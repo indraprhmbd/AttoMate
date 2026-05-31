@@ -1,0 +1,82 @@
+---
+
+const cases = [
+  {
+    initials: "TO",
+    name: "Toko Online Fashion",
+    before: "12+ jam",
+    beforeLabel: "Rata-rata respon",
+    after: "3 menit",
+    afterLabel: "Waktu respon sekarang",
+    metric: "95%",
+    metricLabel: "Pertanyaan terotomatisasi",
+    color: "bg-tomato",
+  },
+  {
+    initials: "WO",
+    name: "Wedding Organizer",
+    before: "40+/hari",
+    beforeLabel: "Telepon & WA masuk",
+    after: "10 menit",
+    afterLabel: "Follow-up otomatis",
+    metric: "3x",
+    metricLabel: "Closing naik 3x lipat",
+    color: "bg-secondary",
+  },
+  {
+    initials: "SB",
+    name: "Service Bengkel",
+    before: "25%",
+    beforeLabel: "Booking hilang",
+    after: "90%",
+    afterLabel: "Booking terkonfirmasi",
+    metric: "Rp 45jt",
+    metricLabel: "Pendapatan tambahan/bulan",
+    color: "bg-green-600",
+  },
+];
+---
+
+<section class="px-margin-mobile md:px-margin-desktop py-[60px] md:py-section-gap bg-pastel-pink w-full">
+  <div class="max-w-screen-2xl mx-auto">
+    <div class="mb-16 text-center max-w-3xl mx-auto">
+      <h2 class="text-headline-xl font-semibold text-on-background mb-4">Hasil Nyata <span class="squiggle-underline text-tomato">Klien Kami</span></h2>
+      <p class="text-body-lg text-on-surface-variant">Bukan janji. Ini dampak yang sudah kami buktikan bersama berbagai bisnis di Indonesia.</p>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      {cases.map((c) => (
+        <div class="bg-white rounded-3xl border-2 border-surface-dim overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300">
+          <div class="p-8">
+            <div class="flex items-center gap-4 mb-6">
+              <div class={`w-12 h-12 ${c.color} rounded-2xl flex items-center justify-center text-white font-bold text-sm`}>
+                {c.initials}
+              </div>
+              <div>
+                <p class="font-bold text-on-surface">{c.name}</p>
+              </div>
+            </div>
+            <div class="bg-surface-bright rounded-2xl p-5 mb-6">
+              <div class="flex justify-between items-center mb-4">
+                <div>
+                  <p class="text-xs text-on-surface-variant mb-1">Sebelum</p>
+                  <p class="text-xl font-bold text-on-surface">{c.before}</p>
+                  <p class="text-xs text-on-surface-variant">{c.beforeLabel}</p>
+                </div>
+                <span class="material-symbols-outlined text-tomato">arrow_forward</span>
+                <div class="text-right">
+                  <p class="text-xs text-on-surface-variant mb-1">Sesudah</p>
+                  <p class="text-xl font-bold text-tomato">{c.after}</p>
+                  <p class="text-xs text-on-surface-variant">{c.afterLabel}</p>
+                </div>
+              </div>
+              <div class="border-t border-border-base pt-4 mt-4 text-center">
+                <p class="text-3xl font-bold text-on-surface">{c.metric}</p>
+                <p class="text-xs text-on-surface-variant">{c.metricLabel}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

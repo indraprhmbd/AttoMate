@@ -1,0 +1,43 @@
+---
+
+const industries = [
+  {
+    icon: "store",
+    title: "UMKM & Retail",
+    desc: "Toko offline dan online yang kewalahan dengan ribuan pertanyaan stok, harga, dan resi setiap harinya.",
+  },
+  {
+    icon: "business_center",
+    title: "Service Business",
+    desc: "Jasa salon, bengkel, wedding organizer - bisnis yang sangat bergantung pada booking dan follow-up klien.",
+  },
+  {
+    icon: "local_shipping",
+    title: "Distribusi",
+    desc: "Perusahaan distribusi yang butuh tracking order dan komunikasi cepat dengan reseller di seluruh Indonesia.",
+  },
+  {
+    icon: "real_estate_agent",
+    title: "Properti",
+    desc: "Agen properti yang kehilangan leads karena respon lambat ke calon pembeli atau penyewa.",
+  },
+];
+---
+
+<section class="px-margin-mobile md:px-margin-desktop py-[60px] md:py-section-gap bg-surface-bright max-w-screen-2xl mx-auto">
+  <div class="mb-16 md:w-1/2">
+    <h2 class="text-headline-xl font-semibold text-on-background mb-4">Kami Membantu <span class="text-tomato marker-highlight">Berbagai Industri</span></h2>
+    <p class="text-body-lg text-on-surface-variant">Setiap bisnis punya tantangan operasional unik. Solusi kami fleksibel untuk berbagai sektor.</p>
+  </div>
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+    {industries.map((ind) => (
+      <div class="bg-white rounded-3xl p-8 border-2 border-surface-dim hover:border-tomato/30 transition-colors duration-300 group">
+        <div class="w-14 h-14 rounded-2xl bg-pastel-peach flex items-center justify-center mb-6 group-hover:bg-tomato group-hover:text-white transition-all duration-300">
+          <span class="material-symbols-outlined text-2xl text-tomato group-hover:text-white transition-colors duration-300">{ind.icon}</span>
+        </div>
+        <h3 class="text-headline-md font-semibold mb-3">{ind.title}</h3>
+        <p class="text-body-sm text-on-surface-variant">{ind.desc}</p>
+      </div>
+    ))}
+  </div>
+</section>

@@ -1,0 +1,73 @@
+---
+import LogoFull from "./LogoFull.astro";
+---
+
+<nav class="bg-surface-bright/90 backdrop-blur-md fixed top-0 left-0 right-0 z-50 border-b border-border-base/50">
+  <div class="flex justify-between items-center w-full px-margin-mobile md:px-margin-desktop py-3 max-w-screen-2xl mx-auto">
+    <a href="/" class="flex items-center">
+      <LogoFull class="h-8 w-auto" />
+    </a>
+    <div class="hidden md:flex items-center gap-8 text-label-caps font-semibold tracking-wider uppercase">
+      <a href="/" class="text-on-surface-variant hover:text-tomato transition-colors duration-300">Beranda</a>
+      <a href="/tentang" class="text-on-surface-variant hover:text-tomato transition-colors duration-300">Tentang</a>
+      <a href="/#solusi" class="text-on-surface-variant hover:text-tomato transition-colors duration-300">Solusi</a>
+      <a href="/industri" class="text-on-surface-variant hover:text-tomato transition-colors duration-300">Industri</a>
+      <a href="/faq" class="text-on-surface-variant hover:text-tomato transition-colors duration-300">FAQ</a>
+    </div>
+    <a href="/hubungi-kami" class="hidden md:inline-flex bg-tomato text-white px-6 py-2.5 rounded-full text-body-sm font-bold hover:bg-tomato-hover transition-colors shadow-md hover:shadow-lg items-center gap-2">
+      <span class="material-symbols-outlined text-[18px]">chat_bubble</span>
+      Hubungi Kami
+    </a>
+    <button class="md:hidden text-tomato" id="mobile-menu-btn" aria-label="Menu">
+      <span class="material-symbols-outlined text-2xl">menu</span>
+    </button>
+  </div>
+
+  <div id="mobile-menu" class="fixed inset-0 z-50 hidden">
+    <div class="absolute inset-0 bg-black/40 backdrop-blur-sm" id="mobile-menu-overlay"></div>
+    <div class="absolute top-0 right-0 w-72 h-full bg-white shadow-2xl p-6 flex flex-col">
+      <div class="flex justify-end mb-10">
+        <button id="mobile-menu-close" class="text-on-surface-variant hover:text-on-surface" aria-label="Close menu">
+          <span class="material-symbols-outlined text-2xl">close</span>
+        </button>
+      </div>
+      <div class="flex flex-col gap-6">
+        <a href="/" class="text-body-lg font-semibold text-on-surface-variant hover:text-tomato transition-colors" data-nav-link>Beranda</a>
+        <a href="/tentang" class="text-body-lg font-semibold text-on-surface-variant hover:text-tomato transition-colors" data-nav-link>Tentang</a>
+        <a href="/#solusi" class="text-body-lg font-semibold text-on-surface-variant hover:text-tomato transition-colors" data-nav-link>Solusi</a>
+        <a href="/industri" class="text-body-lg font-semibold text-on-surface-variant hover:text-tomato transition-colors" data-nav-link>Industri</a>
+        <a href="/faq" class="text-body-lg font-semibold text-on-surface-variant hover:text-tomato transition-colors" data-nav-link>FAQ</a>
+        <a href="/hubungi-kami" class="mt-4 bg-tomato text-white px-6 py-3 rounded-full text-body-md font-bold text-center flex items-center justify-center gap-2" data-nav-link>
+          <span class="material-symbols-outlined text-[18px]">chat_bubble</span>
+          Hubungi Kami
+        </a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<script>
+  const menuBtn = document.getElementById("mobile-menu-btn");
+  const menu = document.getElementById("mobile-menu");
+  const menuClose = document.getElementById("mobile-menu-close");
+  const menuOverlay = document.getElementById("mobile-menu-overlay");
+
+  function openMenu() {
+    menu.classList.remove("hidden");
+    document.body.style.overflow = "hidden";
+  }
+
+  function closeMenu() {
+    menu.classList.add("hidden");
+    document.body.style.overflow = "";
+  }
+
+  if (menuBtn && menu) {
+    menuBtn.addEventListener("click", openMenu);
+    menuClose?.addEventListener("click", closeMenu);
+    menuOverlay?.addEventListener("click", closeMenu);
+    menu.querySelectorAll("[data-nav-link]").forEach((link) => {
+      link.addEventListener("click", closeMenu);
+    });
+  }
+</script>
