@@ -5,68 +5,154 @@ import Footer from "../components/Footer.astro";
 ---
 
 <BaseLayout title="Hubungi Kami - AttoMate | Konsultasi Gratis">
-  <Navbar />
-  <main>
-    <section class="px-margin-mobile md:px-margin-desktop pt-28 pb-15 md:pb-section-gap max-w-screen-2xl mx-auto">
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16 items-start">
-        <div>
-          <h1 class="text-display-lg-mobile md:text-headline-xl font-semibold mb-6">Mari <span class="text-tomato marker-highlight">Ngobrol</span></h1>
-          <p class="text-body-lg text-on-surface-variant mb-8">Isi formulir di samping, dan tim kami akan menghubungi Anda dalam 1x24 jam untuk diskusi santai tanpa komitmen.</p>
-          <div class="space-y-6">
-            <div class="flex items-center gap-4">
-              <div class="w-12 h-12 bg-pastel-peach rounded-2xl flex items-center justify-center shrink-0">
-                <span class="material-symbols-outlined text-tomato">chat</span>
-              </div>
-              <div>
-                <p class="font-bold text-on-surface">WhatsApp</p>
-                <p class="text-body-sm text-on-surface-variant">+62 812-3456-7890</p>
-              </div>
+    <Navbar />
+    <main>
+        <section
+            class="px-margin-mobile md:px-margin-desktop pt-28 pb-15 md:pb-section-gap max-w-screen-2xl mx-auto"
+        >
+            <div
+                class="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16 items-start"
+            >
+                <div>
+                    <h1
+                        class="text-display-lg-mobile md:text-headline-xl font-semibold mb-6"
+                    >
+                        Mari <span class="text-tomato marker-highlight"
+                            >Ngobrol</span
+                        >
+                    </h1>
+                    <p class="text-body-lg text-on-surface-variant mb-8">
+                        Isi formulir di samping, dan tim kami akan menghubungi
+                        Anda dalam 1x24 jam untuk diskusi santai tanpa komitmen.
+                    </p>
+                    <div class="space-y-6">
+                        <div class="flex items-center gap-4">
+                            <div
+                                class="w-12 h-12 bg-pastel-peach rounded-2xl flex items-center justify-center shrink-0"
+                            >
+                                <span
+                                    class="material-symbols-outlined text-tomato"
+                                    >chat</span
+                                >
+                            </div>
+                            <div>
+                                <p class="font-bold text-on-surface">
+                                    WhatsApp
+                                </p>
+                                <p class="text-body-sm text-on-surface-variant">
+                                    +62 896-3879-0525
+                                </p>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-4">
+                            <div
+                                class="w-12 h-12 bg-pastel-peach rounded-2xl flex items-center justify-center shrink-0"
+                            >
+                                <span
+                                    class="material-symbols-outlined text-tomato"
+                                    >mail</span
+                                >
+                            </div>
+                            <div>
+                                <p class="font-bold text-on-surface">Email</p>
+                                <p class="text-body-sm text-on-surface-variant">
+                                    bintangramadhan0710@gmail.com
+                                </p>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-4">
+                            <div
+                                class="w-12 h-12 bg-pastel-peach rounded-2xl flex items-center justify-center shrink-0"
+                            >
+                                <span
+                                    class="material-symbols-outlined text-tomato"
+                                    >location_on</span
+                                >
+                            </div>
+                            <div>
+                                <p class="font-bold text-on-surface">Office</p>
+                                <p class="text-body-sm text-on-surface-variant">
+                                    Yogyakarta, Indonesia
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div
+                    class="bg-white border-2 border-surface-dim rounded-2xl md:rounded-3xl p-6 md:p-8 shadow-md"
+                >
+                    <form
+                        class="space-y-6"
+                        onsubmit="event.preventDefault(); alert('Terima kasih! Kami akan menghubungi Anda segera.');"
+                    >
+                        <div>
+                            <label
+                                for="name"
+                                class="block text-body-sm font-bold mb-2"
+                                >Nama Lengkap</label
+                            >
+                            <input
+                                type="text"
+                                id="name"
+                                name="name"
+                                required
+                                placeholder="Budi Santoso"
+                                class="w-full px-4 py-3 rounded-xl border-2 border-border-base bg-surface-bright text-body-md focus:border-tomato focus:outline-none transition-colors"
+                            />
+                        </div>
+                        <div>
+                            <label
+                                for="email"
+                                class="block text-body-sm font-bold mb-2"
+                                >Email</label
+                            >
+                            <input
+                                type="email"
+                                id="email"
+                                name="email"
+                                required
+                                placeholder="budi@perusahaan.com"
+                                class="w-full px-4 py-3 rounded-xl border-2 border-border-base bg-surface-bright text-body-md focus:border-tomato focus:outline-none transition-colors"
+                            />
+                        </div>
+                        <div>
+                            <label
+                                for="company"
+                                class="block text-body-sm font-bold mb-2"
+                                >Nama Bisnis</label
+                            >
+                            <input
+                                type="text"
+                                id="company"
+                                name="company"
+                                placeholder="Toko Budi Maju"
+                                class="w-full px-4 py-3 rounded-xl border-2 border-border-base bg-surface-bright text-body-md focus:border-tomato focus:outline-none transition-colors"
+                            />
+                        </div>
+                        <div>
+                            <label
+                                for="message"
+                                class="block text-body-sm font-bold mb-2"
+                                >Ceritakan tantangan operasional Anda</label
+                            >
+                            <textarea
+                                id="message"
+                                name="message"
+                                rows="4"
+                                placeholder="Saya sering kewalahan menjawab chat pelanggan..."
+                                class="w-full px-4 py-3 rounded-xl border-2 border-border-base bg-surface-bright text-body-md focus:border-tomato focus:outline-none transition-colors resize-none"
+                            ></textarea>
+                        </div>
+                        <button
+                            type="submit"
+                            class="w-full bg-tomato text-white px-8 py-4 rounded-full text-body-md font-bold hover:bg-tomato-hover transition-all shadow-md hover:shadow-xl transform hover:-translate-y-0.5"
+                        >
+                            Kirim Pesan
+                        </button>
+                    </form>
+                </div>
             </div>
-            <div class="flex items-center gap-4">
-              <div class="w-12 h-12 bg-pastel-peach rounded-2xl flex items-center justify-center shrink-0">
-                <span class="material-symbols-outlined text-tomato">mail</span>
-              </div>
-              <div>
-                <p class="font-bold text-on-surface">Email</p>
-                <p class="text-body-sm text-on-surface-variant">hello@attomate.ai</p>
-              </div>
-            </div>
-            <div class="flex items-center gap-4">
-              <div class="w-12 h-12 bg-pastel-peach rounded-2xl flex items-center justify-center shrink-0">
-                <span class="material-symbols-outlined text-tomato">location_on</span>
-              </div>
-              <div>
-                <p class="font-bold text-on-surface">Office</p>
-                <p class="text-body-sm text-on-surface-variant">Jakarta, Indonesia</p>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="bg-white border-2 border-surface-dim rounded-2xl md:rounded-3xl p-6 md:p-8 shadow-md">
-          <form class="space-y-6" onsubmit="event.preventDefault(); alert('Terima kasih! Kami akan menghubungi Anda segera.');">
-            <div>
-              <label for="name" class="block text-body-sm font-bold mb-2">Nama Lengkap</label>
-              <input type="text" id="name" name="name" required placeholder="Budi Santoso" class="w-full px-4 py-3 rounded-xl border-2 border-border-base bg-surface-bright text-body-md focus:border-tomato focus:outline-none transition-colors" />
-            </div>
-            <div>
-              <label for="email" class="block text-body-sm font-bold mb-2">Email</label>
-              <input type="email" id="email" name="email" required placeholder="budi@perusahaan.com" class="w-full px-4 py-3 rounded-xl border-2 border-border-base bg-surface-bright text-body-md focus:border-tomato focus:outline-none transition-colors" />
-            </div>
-            <div>
-              <label for="company" class="block text-body-sm font-bold mb-2">Nama Bisnis</label>
-              <input type="text" id="company" name="company" placeholder="Toko Budi Maju" class="w-full px-4 py-3 rounded-xl border-2 border-border-base bg-surface-bright text-body-md focus:border-tomato focus:outline-none transition-colors" />
-            </div>
-            <div>
-              <label for="message" class="block text-body-sm font-bold mb-2">Ceritakan tantangan operasional Anda</label>
-              <textarea id="message" name="message" rows="4" placeholder="Saya sering kewalahan menjawab chat pelanggan..." class="w-full px-4 py-3 rounded-xl border-2 border-border-base bg-surface-bright text-body-md focus:border-tomato focus:outline-none transition-colors resize-none"></textarea>
-            </div>
-            <button type="submit" class="w-full bg-tomato text-white px-8 py-4 rounded-full text-body-md font-bold hover:bg-tomato-hover transition-all shadow-md hover:shadow-xl transform hover:-translate-y-0.5">
-              Kirim Pesan
-            </button>
-          </form>
-        </div>
-      </div>
-    </section>
-  </main>
-  <Footer />
+        </section>
+    </main>
+    <Footer />
 </BaseLayout>
